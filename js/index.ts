@@ -3,15 +3,15 @@ interface Circle {
     y: number;
     radius: number;
     color: string;
-    shadowColor: string; 
+    shadowColor: string;
     velocityY: number;
 }
 
 let circles: Circle[] = [];
-let lastTime = 0;
-const gravity = 0.98; 
-const damping = 0.75; 
-const maxCircles = 15;
+let lastTime: number = 0;
+const gravity: number = 0.98;
+const damping: number = 0.75;
+const maxCircles: number = 15;
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeBackgroundAnimation("#bgAnimation", 400);
@@ -28,10 +28,10 @@ function initializeBackgroundAnimation(selector: string, numberOfBoxes: number):
         return;
     }
 
-    const fragment = document.createDocumentFragment();
+    const fragment: DocumentFragment = document.createDocumentFragment();
 
     for (let i = 0; i < numberOfBoxes; i++) {
-        const colorBox = document.createElement("div");
+        const colorBox: HTMLDivElement = document.createElement("div");
         colorBox.classList.add("colorBox");
         fragment.appendChild(colorBox);
     }
@@ -40,15 +40,15 @@ function initializeBackgroundAnimation(selector: string, numberOfBoxes: number):
 }
 
 function initializeCanvas(): void {
-    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+    const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
-    canvas.addEventListener('click', (event) => {
+    canvas.addEventListener('click', (event: MouseEvent) => {
         if (circles.length < maxCircles) {
-            const rect = canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
+            const rect: DOMRect = canvas.getBoundingClientRect();
+            const x: number = event.clientX - rect.left;
+            const y: number = event.clientY - rect.top;
             createCircle(x, y);
         } else {
             alert('Max size of circle is filled!');
@@ -57,7 +57,7 @@ function initializeCanvas(): void {
 }
 
 function initializeControls(): void {
-    const clearButton = document.getElementById('clear-circles') as HTMLButtonElement;
+    const clearButton: HTMLButtonElement = document.getElementById('clear-circles') as HTMLButtonElement;
     clearButton.addEventListener('click', () => {
         circles = [];
         updateCircleCount();
@@ -65,24 +65,24 @@ function initializeControls(): void {
 }
 
 function createCircle(x: number, y: number): void {
-    const sizeInput = document.getElementById('circle-size') as HTMLInputElement;
-    const colorInput = document.querySelector('input[name="circle-color"]:checked') as HTMLInputElement;
-    const shadowColorInput = document.querySelector('input[name="circle-shadow-color"]:checked') as HTMLInputElement; 
-    const radius = parseInt(sizeInput.value) / 2;
-    const color = colorInput.value;
-    const shadowColor = shadowColorInput.value; 
+    const sizeInput: HTMLInputElement = document.getElementById('circle-size') as HTMLInputElement;
+    const colorInput: HTMLInputElement = document.querySelector('input[name="circle-color"]:checked') as HTMLInputElement;
+    const shadowColorInput: HTMLInputElement = document.querySelector('input[name="circle-shadow-color"]:checked') as HTMLInputElement;
+    const radius: number = parseInt(sizeInput.value) / 2;
+    const color: string = colorInput.value;
+    const shadowColor: string = shadowColorInput.value;
 
-    circles.push({ x, y, radius, color, shadowColor, velocityY: 0 }); 
+    circles.push({ x, y, radius, color, shadowColor, velocityY: 0 });
     updateCircleCount();
 }
 
 function updateCircleCount(): void {
-    const circleCountElement = document.getElementById('circle-count') as HTMLParagraphElement;
+    const circleCountElement: HTMLParagraphElement = document.getElementById('circle-count') as HTMLParagraphElement;
     circleCountElement.textContent = `Circles: ${circles.length}/${maxCircles}`;
 }
 
 function tick(currentTime: number): void {
-    const deltaTime = (currentTime - lastTime) / 1000; 
+    const deltaTime: number = (currentTime - lastTime) / 1000;
     lastTime = currentTime;
 
     updateCircles(deltaTime);
@@ -92,7 +92,7 @@ function tick(currentTime: number): void {
 }
 
 function updateCircles(deltaTime: number): void {
-    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+    const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
     circles.forEach(circle => {
         circle.velocityY += gravity;
         circle.y += circle.velocityY * deltaTime;
@@ -105,8 +105,8 @@ function updateCircles(deltaTime: number): void {
 }
 
 function drawCircles(): void {
-    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-    const context = canvas.getContext('2d');
+    const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
+    const context: CanvasRenderingContext2D | null = canvas.getContext('2d');
     if (context) {
         context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -114,8 +114,8 @@ function drawCircles(): void {
             context.beginPath();
             context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
             context.fillStyle = circle.color;
-            context.shadowColor = circle.shadowColor; 
-            context.shadowBlur = 20; 
+            context.shadowColor = circle.shadowColor;
+            context.shadowBlur = 20;
             context.fill();
             context.closePath();
         });
