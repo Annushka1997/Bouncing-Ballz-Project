@@ -14,7 +14,7 @@ This project creates an interactive canvas where users can add circles that fall
 
 1. Clone the repository:
 
-https://github.com/Annushka1997/Bouncing-Ballz-Project
+git clone https://github.com/Annushka1997/Bouncing-Ballz-Project.git
 
 2. Open index.html in your browser.
 
