@@ -88,12 +88,12 @@ body {
 }
 
 .settings__control {
-    margin: 15px;
+    margin: 10px;
 }
 
 .settings__control label,
 .settings__control p {
-    font-size: min(30px, max(15px + 2vw));
+    font-size: min(24px, max(12px + 2vw));
     text-transform: uppercase;
     color: #fff;
 }
@@ -262,6 +262,24 @@ input[type="range"]::-moz-range-thumb {
         height: inherit;
     }
 
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+    }
+
+    .game {
+        gap: 20px;
+    }
+
+    .game__settings { 
+        padding: 12px;
+    }
+
+    .settings__control {
+        margin: 5px;
+    }
 }
 
 @media (max-width: 320px) {
