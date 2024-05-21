@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ballz Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon"
+        href="https://static.vecteezy.com/system/resources/previews/013/362/728/original/beach-ball-transparent-free-png.png">
+</head>
+
+<body>
+    <div class="bgAnimation" id="bgAnimation">
+        <div class="backgroundAnim">
+
+        </div>
+    </div>
+    <div class="container">
+        <header class="header">
+            <h1 data-text="Bouncing Ballz Game" class="header__title">Bouncing Ballz Game</h1>
+        </header>
+        <div class="game">
+            <canvas id="canvas" class="game__playground"></canvas>
+            <div class="game__settings">
+                <div class="settings">
+                    <div class="settings__control">
+                        <label for="circle-size" class="settings__label">Circle Size:</label>
+                        <input type="range" id="circle-size" class="settings__input" min="10" max="100" value="50">
+                    </div>
+                    <div class="settings__control">
+                        <label class="settings__label">Circle Color:</label>
+                        <div class="color-picker">
+                            <input type="radio" name="circle-color" id="color-red" class="color-picker__input" value="#ff0000" checked>
+                            <label for="color-red" class="color-picker__label" style="background-color: #ff0000;"></label>
+                            
+                            <input type="radio" name="circle-color" id="color-green" class="color-picker__input" value="#00ff00">
+                            <label for="color-green" class="color-picker__label" style="background-color: #00ff00;"></label>
+                            
+                            <input type="radio" name="circle-color" id="color-blue" class="color-picker__input" value="#0000ff">
+                            <label for="color-blue" class="color-picker__label" style="background-color: #0000ff;"></label>
+                            
+                            <input type="radio" name="circle-color" id="color-yellow" class="color-picker__input" value="#ffff00">
+                            <label for="color-yellow" class="color-picker__label" style="background-color: #ffff00;"></label>
+                            
+                            <input type="radio" name="circle-color" id="color-purple" class="color-picker__input" value="#800080">
+                            <label for="color-purple" class="color-picker__label" style="background-color: #800080;"></label>
+
+                        </div>
+                    </div>
+
+                    <div class="settings__control">
+                        <label class="settings__label">Circle Shadow Color:</label>
+                        <div class="shadow-picker">
+                            <input type="radio" name="circle-shadow-color" id="shadow-red" class="shadow-picker__input" value="#ff0000" checked>
+                            <label for="shadow-red" class="shadow-picker__label" style="box-shadow: 0 0 10px 3px #ff0000;"></label>
+                            
+                            <input type="radio" name="circle-shadow-color" id="shadow-green" class="shadow-picker__input" value="#00ff00">
+                            <label for="shadow-green" class="shadow-picker__label" style="box-shadow: 0 0 10px 3px #00ff00;"></label>
+                            
+                            <input type="radio" name="circle-shadow-color" id="shadow-blue" class="shadow-picker__input" value="#0000ff">
+                            <label for="shadow-blue" class="shadow-picker__label" style="box-shadow: 0 0 10px 3px #0000ff;"></label>
+                            
+                            <input type="radio" name="circle-shadow-color" id="shadow-yellow" class="shadow-picker__input" value="#ffff00">
+                            <label for="shadow-yellow" class="shadow-picker__label" style="box-shadow: 0 0 10px 3px #ffff00;"></label>
+                            
+                            <input type="radio" name="circle-shadow-color" id="shadow-purple" class="shadow-picker__input" value="#800080">
+                            <label for="shadow-purple" class="shadow-picker__label" style="box-shadow: 0 0 10px 3px #800080;"></label>
+
+                        </div>
+                    </div>
+                    <div class="settings__control">
+                        <button id="clear-circles" class="settings__button">Clear Circles</button>
+                    </div>
+                    <div class="settings__control">
+                        <p id="circle-count" class="settings__count">Circles: 0/15</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
