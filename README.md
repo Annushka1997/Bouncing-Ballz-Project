@@ -37,4 +37,3 @@ git clone https://github.com/Annushka1997/Bouncing-Ballz-Project.git
  6. tick: The main animation loop that updates and draws the circles.
  7. updateCircles: Updates the position and velocity of each circle.
  8. drawCircles: Renders the circles on the canvas.
- 9. getRandomColor: Generates a random color string.
